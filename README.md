@@ -7,9 +7,8 @@ ViT -> CLIP -> vilt -> blip -> stable diffusion
 任务|模型|Colab
 ---|---|---
 图片分类|ViT|[![Open Collab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/billvsme/clip_is_all_you_need/blob/master/jupyter/vit.ipynb)  
-文本->图片搜索|CLIP|
-图片->图片搜索|CLIP|
-图片->图片描述生成|blip|
+文本/图片搜索|CLIP|[![Open Collab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/billvsme/clip_is_all_you_need/blob/master/jupyter/clip.ipynb)  
+图片描述生成|blip|
 文本->图片生成|stable diffusion|
 
 ## ViT
