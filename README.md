@@ -213,3 +213,39 @@ for image_path in images:
 
 ### 模型
 [https://huggingface.co/Salesforce/blip-image-captioning-large](https://huggingface.co/Salesforce/blip-image-captioning-large)
+
+### 使用
+下载模型
+```shell
+mkdir -p /content/modelsw
+git clone --depth=1 https://huggingface.co/Salesforce/blip-image-captioning-large  /content/models/blip-image-captioning-large
+```
+生成图像描述
+```python
+import requests
+from PIL import Image
+from transformers import BlipProcessor, BlipForConditionalGeneration
+
+model_id = "/content/models/blip-image-captioning-large/"
+
+processor = BlipProcessor.from_pretrained(model_id)
+model = BlipForConditionalGeneration.from_pretrained(model_id)
+model.to("cuda")
+
+img_url = 'https://storage.googleapis.com/sfr-vision-language-research/BLIP/demo.jpg'
+raw_image = Image.open(requests.get(img_url, stream=True).raw).convert('RGB')
+# 有提示
+text = "a photography of"
+inputs = processor(raw_image, text, return_tensors="pt").to("cuda")
+
+out = model.generate(**inputs)
+print("="*20)
+print("描述：", processor.decode(out[0], skip_special_tokens=True))
+
+# 没有提示
+inputs = processor(raw_image, return_tensors="pt").to("cuda")
+
+out = model.generate(**inputs)
+print("="*20)
+print("描述：", processor.decode(out[0], skip_special_tokens=True))
+```
