@@ -3,6 +3,8 @@ CLIP Is All You Need
 多模态检索、生成。提供示例代码，一步一步理解从transformer到stable diffusion的发展。
 ```
 ViT -> CLIP -> ViLT -> BLIP -> stable diffusion
+        \-> Qwen-VL
+         \-> CogVLM
 ```
 任务|模型|Colab
 ---|---|---
