@@ -70,7 +70,7 @@ mkdir -p /content/modelsw
 git clone --depth=1 https://huggingface.co/openai/clip-vit-large-patch14  /content/models/clip-vit-large-patch14
 git clone --depth=1 https://huggingface.co/stabilityai/sdxl-turbo  /content/models/sdxl-turbo
 ```
-先用stable diffusion生成一些用于分类的图片，使用sdxl-turbo快速生成
+先用stable diffusion生成一些用于分类的图片，使用sdxl-turbo快速生成，只需要1-4个step⚡️
 ```python
 import os
 import torch
