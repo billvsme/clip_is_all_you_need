@@ -66,7 +66,7 @@ pip install diffusers
 ```
 下载模型
 ```shell
-mkdir -p /content/modelsw
+mkdir -p /content/models
 git clone --depth=1 https://huggingface.co/openai/clip-vit-large-patch14  /content/models/clip-vit-large-patch14
 git clone --depth=1 https://huggingface.co/stabilityai/sdxl-turbo  /content/models/sdxl-turbo
 ```
