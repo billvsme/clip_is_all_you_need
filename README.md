@@ -199,7 +199,17 @@ for image_path in images:
 可以看到，文本->图片，图片->图片 检索结果正确  
 <a href="https://sm.ms/image/vcBWaGVjMe5u6sF" target="_blank"><img src="https://s2.loli.net/2023/12/25/vcBWaGVjMe5u6sF.png" width="30%"></a>
 
-## vilt
+## ViLT
 
-## blip
+## BLIP
+### Paper
+[https://arxiv.org/pdf/2201.12086.pdf](https://arxiv.org/pdf/2201.12086.pdf)
 
+
+### 结构
+<a href="https://sm.ms/image/haKLzrHEOGslB1u" target="_blank"><img src="https://s2.loli.net/2023/12/25/haKLzrHEOGslB1u.png" width="70%"></a>  
+  
+<a href="https://sm.ms/image/PqLzRkvgYnwKFSx" target="_blank"><img src="https://s2.loli.net/2023/12/25/PqLzRkvgYnwKFSx.png" width="70%"></a>  
+
+### 模型
+[https://huggingface.co/Salesforce/blip-image-captioning-large](https://huggingface.co/Salesforce/blip-image-captioning-large)
