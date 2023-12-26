@@ -291,3 +291,16 @@ out = model.generate(**inputs)
 print("="*20)
 print("描述：", processor.decode(out[0], skip_special_tokens=True))
 ```
+
+## BLIP2
+### Paper
+[https://arxiv.org/abs/2301.12597](https://arxiv.org/abs/2301.12597)
+
+### 结构
+<a href="https://sm.ms/image/hseK3fjVXdNa1Ak" target="_blank"><img src="https://s2.loli.net/2023/12/26/hseK3fjVXdNa1Ak.jpg" width="70%"></a>
+
+### 模型
+[https://huggingface.co/Salesforce/blip2-opt-2.7b](https://huggingface.co/Salesforce/blip2-opt-2.7b)
+
+### 使用
+
