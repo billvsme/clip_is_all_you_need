@@ -337,6 +337,16 @@ print("问题:", question)
 print("回答:", processor.decode(out[0], skip_special_tokens=True).strip())
 ```
 
+## InstructBLIP
+### Paper
+https://arxiv.org/abs/2305.06500
+### 结构
+InstructBLIP结构和BLIP2类似，Q-Former有一点不一样  
+<a href="https://sm.ms/image/28jHBc4RMsFW6kX" target="_blank"><img src="https://s2.loli.net/2023/12/26/28jHBc4RMsFW6kX.png" width="70%"></a>
+### 模型
+[https://huggingface.co/Salesforce/instructblip-vicuna-7b](https://huggingface.co/Salesforce/instructblip-vicuna-7b)
+
+
 ## Qwen-VL
 ### Paper
 [https://arxiv.org/abs/2308.12966](https://arxiv.org/abs/2308.12966)
