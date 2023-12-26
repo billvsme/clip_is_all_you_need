@@ -199,6 +199,16 @@ for image_path in images:
 <a href="https://sm.ms/image/vcBWaGVjMe5u6sF" target="_blank"><img src="https://s2.loli.net/2023/12/25/vcBWaGVjMe5u6sF.png" width="30%"></a>
 
 ## ViLT
+### Paper
+[https://arxiv.org/abs/2102.03334](https://arxiv.org/abs/2102.03334)
+
+### 结构
+<a href="https://sm.ms/image/7w3sObMhdk6AWal" target="_blank"><img src="https://s2.loli.net/2023/12/26/7w3sObMhdk6AWal.png" width="70%"></a>
+
+### 模型
+VQA微调  
+[https://huggingface.co/dandelin/vilt-b32-finetuned-vqa](https://huggingface.co/dandelin/vilt-b32-finetuned-vqa)
+
 
 ## BLIP
 ### Paper
