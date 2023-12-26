@@ -206,8 +206,41 @@ for image_path in images:
 <a href="https://sm.ms/image/7w3sObMhdk6AWal" target="_blank"><img src="https://s2.loli.net/2023/12/26/7w3sObMhdk6AWal.png" width="70%"></a>
 
 ### 模型
-VQA微调  
+VQAv2数据微调:  
 [https://huggingface.co/dandelin/vilt-b32-finetuned-vqa](https://huggingface.co/dandelin/vilt-b32-finetuned-vqa)
+
+### 使用
+下载模型
+```shell
+mkdir /content/models
+git clone --depth=1 https://huggingface.co/dandelin/vilt-b32-finetuned-vqa /content/models/vilt-b32-finetuned-vqa
+```
+图像问答, VQAv2数据集
+```python
+from transformers import ViltProcessor, ViltForQuestionAnswering
+import requests
+from PIL import Image
+
+# prepare image + question
+url = "http://images.cocodataset.org/val2017/000000039769.jpg"
+image = Image.open(requests.get(url, stream=True).raw)
+question = "How many cats are there?"
+
+model_id = "/content/models/vilt-b32-finetuned-vqa"
+processor = ViltProcessor.from_pretrained(model_id)
+model = ViltForQuestionAnswering.from_pretrained(model_id)
+
+# prepare inputs
+encoding = processor(image, question, return_tensors="pt")
+
+# forward pass
+outputs = model(**encoding)
+logits = outputs.logits
+idx = logits.argmax(-1).item()
+
+print("问题:", question)
+print("答案:", model.config.id2label[idx])
+```
 
 
 ## BLIP
@@ -258,3 +291,16 @@ out = model.generate(**inputs)
 print("="*20)
 print("描述：", processor.decode(out[0], skip_special_tokens=True))
 ```
+
+## BLIP2
+### Paper
+[https://arxiv.org/abs/2301.12597](https://arxiv.org/abs/2301.12597)
+
+### 结构
+<a href="https://sm.ms/image/hseK3fjVXdNa1Ak" target="_blank"><img src="https://s2.loli.net/2023/12/26/hseK3fjVXdNa1Ak.jpg" width="70%"></a>
+
+### 模型
+[https://huggingface.co/Salesforce/blip2-opt-2.7b](https://huggingface.co/Salesforce/blip2-opt-2.7b)
+
+### 使用
+
