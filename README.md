@@ -12,7 +12,7 @@ ViT -> CLIP -> ViLT -> ALBEF -> BLIP -> BLIP2 -> InstructBLIP -> Qwen-VL -> CogV
 文本/图片搜索|CLIP|[![Open Collab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/billvsme/clip_is_all_you_need/blob/master/jupyter/clip.ipynb)  
 图片描述生成|BLIP|[![Open Collab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/billvsme/clip_is_all_you_need/blob/master/jupyter/blip.ipynb)  
 图片问答|BLIP2|[![Open Collab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/billvsme/clip_is_all_you_need/blob/master/jupyter/blip2.ipynb) 
-视觉语言模型|InstructBLIP, Qwen-VL, CogVLM|
+视觉语言模型|InstructBLIP, Qwen-VL, CogVLM|[![Open Collab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/billvsme/clip_is_all_you_need/blob/master/jupyter/qwen_vl.ipynb) 
 文本->图片生成|stable diffusion|
 
 ## ViT
@@ -352,5 +352,53 @@ InstructBLIP结构和BLIP2类似，Q-Former有一点不一样
 [https://arxiv.org/abs/2308.12966](https://arxiv.org/abs/2308.12966)
 
 ### 结构
+
+
 ### 模型
 ### 使用
+安装依赖
+```shell
+pip install tiktoken einops transformers_stream_generator accelerate bitsandbytes optimum auto-gptq
+```
+下载模型
+```shell
+mkdir /content/models
+git clone --depth=1 https://huggingface.co/Qwen/Qwen-VL-Chat-Int4 /content/models/Qwen-VL-Chat-Int4
+```
+图像问答，边界框检测
+```python
+from IPython.display import display
+from PIL import Image
+from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers.generation import GenerationConfig
+import torch
+torch.manual_seed(1234)
+
+model_id = "/content/models/Qwen-VL-Chat-Int4/"
+tokenizer = AutoTokenizer.from_pretrained(model_id, trust_remote_code=True)
+
+model = AutoModelForCausalLM.from_pretrained(model_id, trust_remote_code=True, device_map="cuda", fp16=True,).eval()
+
+model.generation_config = GenerationConfig.from_pretrained(model_id, trust_remote_code=True)
+
+# 图片问答
+question = '图里有几只猫？'
+query = tokenizer.from_list_format([
+    {'image': 'http://images.cocodataset.org/val2017/000000039769.jpg'}, # Either a local path or an url
+    {'text': question},
+])
+response, history = model.chat(tokenizer, query=query, history=None)
+print("问题:", question)
+print("回答:", response)
+
+# 边界框检测
+question = '框出图中的猫'
+response, history = model.chat(tokenizer, question, history=history)
+print("问题:", question)
+print("回答:")
+image = tokenizer.draw_bbox_on_latest_picture(response, history)
+if image:
+  display(Image.fromarray(image.get_image()))
+else:
+  print("no box")
+```
