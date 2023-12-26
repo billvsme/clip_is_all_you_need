@@ -367,8 +367,6 @@ git clone --depth=1 https://huggingface.co/Qwen/Qwen-VL-Chat-Int4 /content/model
 ```
 图像问答，边界框检测
 ```python
-from IPython.display import display
-from PIL import Image
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from transformers.generation import GenerationConfig
 import torch
@@ -398,7 +396,7 @@ print("问题:", question)
 print("回答:")
 image = tokenizer.draw_bbox_on_latest_picture(response, history)
 if image:
-  display(Image.fromarray(image.get_image()))
+    image.save("cat.jpg")
 else:
-  print("no box")
+    print("no box")
 ```
