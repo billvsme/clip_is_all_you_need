@@ -352,9 +352,11 @@ InstructBLIP结构和BLIP2类似，Q-Former有一点不一样
 [https://arxiv.org/abs/2308.12966](https://arxiv.org/abs/2308.12966)
 
 ### 结构
-
+<a href="https://sm.ms/image/umHfvJtWPeGkgzB" target="_blank"><img src="https://s2.loli.net/2023/12/27/umHfvJtWPeGkgzB.png" width="60%"></a>
 
 ### 模型
+[https://huggingface.co/Qwen/Qwen-VL-Chat](https://huggingface.co/Qwen/Qwen-VL-Chat)
+
 ### 使用
 安装依赖
 ```shell
