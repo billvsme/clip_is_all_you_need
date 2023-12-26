@@ -11,7 +11,7 @@ ViT -> CLIP -> ViLT -> ALBEF -> BLIP -> BLIP2 -> Qwen-VL -> CogVLM
 图片分类|ViT|[![Open Collab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/billvsme/clip_is_all_you_need/blob/master/jupyter/vit.ipynb)  
 文本/图片搜索|CLIP|[![Open Collab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/billvsme/clip_is_all_you_need/blob/master/jupyter/clip.ipynb)  
 图片描述生成|BLIP|[![Open Collab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/billvsme/clip_is_all_you_need/blob/master/jupyter/blip.ipynb)  
-图片问答|BLIP2|
+图片问答|BLIP2|[![Open Collab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/billvsme/clip_is_all_you_need/blob/master/jupyter/blip2.ipynb)  
 文本->图片生成|stable diffusion|
 
 ## ViT
@@ -303,4 +303,34 @@ print("描述：", processor.decode(out[0], skip_special_tokens=True))
 [https://huggingface.co/Salesforce/blip2-opt-2.7b](https://huggingface.co/Salesforce/blip2-opt-2.7b)
 
 ### 使用
+下载模型
+```shell
+mkdir /content/models
+git clone --depth=1 https://huggingface.co/Salesforce/blip2-opt-2.7b /content/models/blip2-opt-2.7b
+```
+图像问答（注意prompt格式，huggingface主页的code，运行没有结果是因为prompt不正确），也可以试试6.7b的版本，回答效果更好
+```python
+import torch
+import requests
+from PIL import Image
+from transformers import Blip2Processor, Blip2ForConditionalGeneration
+
+model_id = "/content/models/blip2-opt-2.7b"
+processor = Blip2Processor.from_pretrained(model_id)
+model = Blip2ForConditionalGeneration.from_pretrained(model_id, torch_dtype=torch.float16, device_map={"": "cuda"})
+
+img_url = 'http://images.cocodataset.org/val2017/000000039769.jpg'
+raw_image = Image.open(requests.get(img_url, stream=True).raw).convert('RGB')
+
+
+question = "how many cats are there? "
+# 注意prompt格式
+prompt = f"Question: {question} Answer:"
+inputs = processor(raw_image, prompt, return_tensors="pt").to("cuda", torch.float16)
+
+out = model.generate(**inputs)
+
+print("问题:", question)
+print("回答:", processor.decode(out[0], skip_special_tokens=True).strip())
+```
 
