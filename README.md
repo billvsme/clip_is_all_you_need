@@ -404,3 +404,4 @@ if image:
 else:
     print("no box")
 ```
+<a href="https://sm.ms/image/naUKcPy4Iu7QwJb" target="_blank"><img src="https://s2.loli.net/2023/12/27/naUKcPy4Iu7QwJb.png" width="60%"></a>
