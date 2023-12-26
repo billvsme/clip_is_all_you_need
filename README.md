@@ -386,12 +386,14 @@ query = tokenizer.from_list_format([
     {'text': question},
 ])
 response, history = model.chat(tokenizer, query=query, history=None)
+print("="*20)
 print("问题:", question)
 print("回答:", response)
 
 # 边界框检测
 question = '框出图中的猫'
 response, history = model.chat(tokenizer, question, history=history)
+print("="*20)
 print("问题:", question)
 print("回答:")
 image = tokenizer.draw_bbox_on_latest_picture(response, history)
