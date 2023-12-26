@@ -2,7 +2,7 @@ CLIP Is All You Need
 =========
 多模态检索、生成。提供示例代码，一步一步理解从transformer到stable diffusion，多模态llm的发展。
 ```
-ViT -> CLIP -> ViLT -> ALBEF -> BLIP -> BLIP2 -> Qwen-VL -> CogVLM
+ViT -> CLIP -> ViLT -> ALBEF -> BLIP -> BLIP2 -> InstructBLIP -> Qwen-VL -> CogVLM
         \
          \-> Stable Diffusion
 ```
@@ -11,7 +11,8 @@ ViT -> CLIP -> ViLT -> ALBEF -> BLIP -> BLIP2 -> Qwen-VL -> CogVLM
 图片分类|ViT|[![Open Collab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/billvsme/clip_is_all_you_need/blob/master/jupyter/vit.ipynb)  
 文本/图片搜索|CLIP|[![Open Collab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/billvsme/clip_is_all_you_need/blob/master/jupyter/clip.ipynb)  
 图片描述生成|BLIP|[![Open Collab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/billvsme/clip_is_all_you_need/blob/master/jupyter/blip.ipynb)  
-图片问答|BLIP2|[![Open Collab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/billvsme/clip_is_all_you_need/blob/master/jupyter/blip2.ipynb)  
+图片问答|BLIP2|[![Open Collab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/billvsme/clip_is_all_you_need/blob/master/jupyter/blip2.ipynb) 
+视觉语言模型|InstructBLIP, Qwen-VL, CogVLM|
 文本->图片生成|stable diffusion|
 
 ## ViT
@@ -334,3 +335,10 @@ print("问题:", question)
 print("回答:", processor.decode(out[0], skip_special_tokens=True).strip())
 ```
 
+## Qwen-VL
+### Paper
+[https://arxiv.org/abs/2308.12966](https://arxiv.org/abs/2308.12966)
+
+### 结构
+### 模型
+### 使用
