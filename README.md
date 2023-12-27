@@ -16,7 +16,7 @@ ViT ------> CLIP -> ViLT -> ALBEF -> BLIP -> BLIP2 -> InstructBLIP -> Qwen-VL ->
 图片描述生成|BLIP|[![Open Collab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/billvsme/clip_is_all_you_need/blob/master/jupyter/blip.ipynb)  
 图片问答|BLIP2|[![Open Collab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/billvsme/clip_is_all_you_need/blob/master/jupyter/blip2.ipynb) 
 视觉语言模型|InstructBLIP, Qwen-VL, CogVLM|[![Open Collab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/billvsme/clip_is_all_you_need/blob/master/jupyter/qwen_vl.ipynb) 
-文本->图片生成|stable diffusion|
+文本->图片生成|Stable Diffusion|
 
 ## ViT
 ### Paper
@@ -476,4 +476,6 @@ Latent Diffusion Models
 蓝色方框中的E和D 分别为VAE的编码器和解码器，T为CLIP编码器
 
 ### 模型
+[https://huggingface.co/runwayml/stable-diffusion-v1-5](https://huggingface.co/runwayml/stable-diffusion-v1-5)
+
 ### 使用
