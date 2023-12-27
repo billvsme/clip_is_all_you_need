@@ -405,3 +405,13 @@ else:
     print("no box")
 ```
 <a href="https://sm.ms/image/naUKcPy4Iu7QwJb" target="_blank"><img src="https://s2.loli.net/2023/12/27/naUKcPy4Iu7QwJb.png" width="60%"></a>
+
+## CogVLM
+### Paper
+[https://arxiv.org/abs/2311.03079](https://arxiv.org/abs/2311.03079)
+### 结构
+<a href="https://sm.ms/image/bSCcWjx9BauYnt5" target="_blank"><img src="https://s2.loli.net/2023/12/27/bSCcWjx9BauYnt5.png" width="70%"></a>
+### 模型
+[https://huggingface.co/THUDM/cogvlm-chat-hf](https://huggingface.co/THUDM/cogvlm-chat-hf)
+[https://huggingface.co/THUDM/cogagent-chat-hf](https://huggingface.co/THUDM/cogagent-chat-hf)
+### 使用
