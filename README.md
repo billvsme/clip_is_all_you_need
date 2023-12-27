@@ -16,7 +16,7 @@ ViT ------> CLIP -> ViLT -> ALBEF -> BLIP -> BLIP2 -> InstructBLIP -> Qwen-VL ->
 图片描述生成|BLIP|[![Open Collab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/billvsme/clip_is_all_you_need/blob/master/jupyter/blip.ipynb)  
 图片问答|BLIP2|[![Open Collab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/billvsme/clip_is_all_you_need/blob/master/jupyter/blip2.ipynb) 
 视觉语言模型|InstructBLIP, Qwen-VL, CogVLM|[![Open Collab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/billvsme/clip_is_all_you_need/blob/master/jupyter/qwen_vl.ipynb) 
-文本->图片生成|Stable Diffusion|
+文本->图片生成|Stable Diffusion|[![Open Collab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/billvsme/clip_is_all_you_need/blob/master/jupyter/sd.ipynb) 
 
 ## ViT
 ### Paper
@@ -479,3 +479,30 @@ Latent Diffusion Models
 [https://huggingface.co/runwayml/stable-diffusion-v1-5](https://huggingface.co/runwayml/stable-diffusion-v1-5)
 
 ### 使用
+安装依赖
+```shell
+pip install diffusers
+```
+下载模型
+```shell
+mkdir /content/models
+git clone --depth=1 https://huggingface.co/runwayml/stable-diffusion-v1-5 /content/models/stable-diffusion-v1-5
+```
+生成图片
+```python
+"""生成图片
+"""
+from diffusers import DiffusionPipeline
+import torch
+
+model_id = "/content/models/stable-diffusion-v1-5"
+pipe = DiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float16)
+pipe = pipe.to("cuda")
+
+prompt = "a photo of cat"
+images = pipe([prompt]*4, width=512, height=512, num_inference_steps=20).images
+
+for index, image in enumerate(images):
+    image.save(f'cat-{index}.png')
+```
+<a href="https://sm.ms/image/yOD9VFEP5NSW1BU" target="_blank"><img src="https://s2.loli.net/2023/12/27/yOD9VFEP5NSW1BU.png" width="60%"></a>
