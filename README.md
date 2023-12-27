@@ -418,3 +418,15 @@ else:
 [https://huggingface.co/THUDM/cogvlm-chat-hf](https://huggingface.co/THUDM/cogvlm-chat-hf)
 [https://huggingface.co/THUDM/cogagent-chat-hf](https://huggingface.co/THUDM/cogagent-chat-hf)
 ### 使用
+
+## Stable Diffusion
+### Paper
+Latent Diffusion Models  
+[https://arxiv.org/abs/2112.10752](https://arxiv.org/abs/2112.10752)  
+
+### 结构
+<a href="https://sm.ms/image/DAqC8MbQ4gB2SH1" target="_blank"><img src="https://s2.loli.net/2023/12/27/DAqC8MbQ4gB2SH1.png" width="50%"></a>  
+蓝色方框中的E和D 分别为VAE的编码器和解码器，T为CLIP编码器
+
+### 模型
+### 使用
