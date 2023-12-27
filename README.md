@@ -2,9 +2,12 @@ CLIP Is All You Need
 =========
 多模态检索、生成。提供示例代码，一步一步理解从transformer到stable diffusion，多模态llm的发展。
 ```
-ViT -> CLIP -> ViLT -> ALBEF -> BLIP -> BLIP2 -> InstructBLIP -> Qwen-VL -> CogVLM
-        \
-         \-> Stable Diffusion
+ViT ------> CLIP -> ViLT -> ALBEF -> BLIP -> BLIP2 -> InstructBLIP -> Qwen-VL -> CogVLM
+               \
+                \
+  VAE --\        \
+         \        \
+  U-Net ---> LDM ---> Stable Diffusion
 ```
 任务|模型|Colab
 ---|---|---
